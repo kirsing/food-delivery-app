@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import {  API_URL_Order } from 'src/app/constants/url'; 
+import {  K8ExternalIp } from 'src/app/constants/url'; 
 
 @Injectable({
   providedIn: 'root'
@@ -9,14 +9,14 @@ import {  API_URL_Order } from 'src/app/constants/url';
 
 export class OrderService {
 
-  private apiUrl = API_URL_Order+'/order/saveOrder';
+  private apiUrl = K8ExternalIp+'orders/order/saveOrder';
 
   constructor(private http: HttpClient) { }
 
  httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':'text/plain',
-      'Access-Control-Allow-Origin': 'http://localhost:4200' // Replace with your Angular app URL
+      'Access-Control-Allow-Origin': 'http://localhost:4200'
     })
   };
 
